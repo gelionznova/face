@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.close-btn {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5e5e5e;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  opacity: 0.9;
+}
+
+.container {
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0 16px;
+}
+
+.left-section {
+  flex: 1;
+  max-width: 500px;
+  margin-right: 50px;
+  margin-left: 200px;
+}
+
+.logo {
+  color: #1877f2;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0 0 18px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #1c1e21;
+  margin-top: 0;
+}
+
+.right-section {
+  background: white;
+  padding: 24px 18px 32px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #dddfe2;
+  outline: none;
+  background: #f5f6f7;
+  margin-bottom: 0;
+}
+
+.login-btn {
+  background: #1877f2;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 13px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+.forgot-link {
+  color: #1877f2;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.login-form hr {
+  border: none;
+  border-top: 1px solid #dadde1;
+  margin: 15px 0;
+}
+
+.create-account-btn {
+  background: #42b72a;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 80%;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.create-page {
+  margin-top: 28px;
+  font-size: 0.98rem;
+  color: #1c1e21;
+  text-align: center;
+}
+
+footer {
+  margin-top: 40px;
+  background: none;
+  padding: 30px 0 20px 0;
+  text-align: center;
+  font-size: 0.94rem;
+  color: #737373;
+}
+
+.languages {
+  margin-bottom: 7px;
+  word-spacing: 2px;
+  overflow-x: auto;
+}
+
+.lang-plus {
+  background: #f5f6f7;
+  border: 1px solid #ccd0d5;
+  font-size: 1.1rem;
+  padding: 0 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  color: #67676a;
+  vertical-align: middle;
+}
+
+.footer-links {
+  margin: 6px 0 8px 0;
+  font-size: 0.88rem;
+  color: #8a8d91;
+  line-height: 1.7;
+  word-spacing: 1.5px;
+  overflow-x: auto;
+}
+
+.meta {
+  margin-top: 8px;
+  color: #737373;
+  font-size: 0.85rem;
+}
+
+
+/* ----------- Responsive Design ----------- */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1100px) {
+  .left-section {
+    margin-left: 60px;
+    margin-right: 30px;
+    max-width: 400px;
+  }
+}
+
+/* Celulares grandes y tablets */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 8px 0 8px;
+    margin-top: 20px;
+  }
+  .left-section {
+    margin: 0 0 32px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  .logo {
+    font-size: 48px;
+  }
+  .right-section {
+    margin: 0 auto;
+  }
+}
+
+/* Celulares medianos y pequeños (Android, iPhone) */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 8px;
+    min-height: 100vh;
+    padding: 0 2vw;
+  }
+  .left-section {
+    margin: 0 0 18px 0;
+    padding: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  .logo {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 1.02rem;
+  }
+  .right-section {
+    min-width: unset;
+    width: 100%;
+    padding: 18px 6px 24px 6px;
+    max-width: 380px;
+  }
+  .close-btn {
+    top: 8px;
+    left: unset;
+    right: 8px;
+    transform: none;
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+  }
+  .create-page {
+    font-size: 0.92rem;
+  }
+  footer {
+    font-size: 0.82rem;
+    padding: 14px 0 8px 0;
+  }
+}
+
+/* Celulares super pequeños (por ejemplo, iPhone SE) */
+@media (max-width: 400px) {
+  .right-section {
+    padding: 12px 2px 18px 2px;
+  }
+  .logo {
+    font-size: 25px;
+  }
+}
+

