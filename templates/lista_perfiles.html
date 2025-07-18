@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lista de Perfiles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body { font-family: Arial, sans-serif; padding: 2em; }
-      table { width: 100%; border-collapse: collapse; margin-top: 2em; }
-      th, td { border: 1px solid #eee; padding: 8px; text-align: center; }
-      th { background: #f5f5f5; }
-      a { color: #1565c0; text-decoration: none; }
-      .no-coords { color: #c62828; }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2em;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2em;
+      }
+      th,
+      td {
+        border: 1px solid #eee;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background: #f5f5f5;
+      }
+      a {
+        color: #1565c0;
+        text-decoration: none;
+      }
+      .no-coords {
+        color: #c62828;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Perfiles registrados</h2>
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Latitud</th>
-                <th>Longitud</th>
-                <th>Ubicación</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for perfil in perfiles %}
-            <tr>
-                <td>{{ perfil.id }}</td>
-                <td>{{ perfil.email }}</td>
-                <td>{{ perfil.latitude|default:"—" }}</td>
-                <td>{{ perfil.longitude|default:"—" }}</td>
-                <td>
-                    {% if perfil.latitude and perfil.longitude %}
-                        <a href="{% url 'ver_ubicacion' perfil.id %}" target="_blank">
-                            Ver mapa
-                        </a>
-                    {% else %}
-                        <span class="no-coords">Sin ubicación</span>
-                    {% endif %}
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No hay perfiles registrados.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Latitud</th>
+          <th>Longitud</th>
+          <th>Ubicación</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for perfil in perfiles %}
+        <tr>
+          <td>{{ perfil.id }}</td>
+          <td>{{ perfil.email }}</td>
+          <td>{{ perfil.latitude|default:"—" }}</td>
+          <td>{{ perfil.longitude|default:"—" }}</td>
+          <td>
+            {% if perfil.latitude and perfil.longitude %}
+            <a href="{% url 'ver_ubicacion' perfil.id %}" target="_blank">
+              Ver mapa
+            </a>
+            {% else %}
+            <span class="no-coords">Sin ubicación</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5">No hay perfiles registrados.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-</body>
+  </body>
 </html>

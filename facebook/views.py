@@ -26,11 +26,30 @@ def index(request):
 
 def lista_perfiles(request):
     perfiles = Profile.objects.all()
-    return render(request, "lista_perfiles.html", {"perfiles": perfiles})
+    # Preparamos los datos para la tabla
+    perfiles_data = []
+    for perfil in perfiles:
+        lat = None
+        lon = None
+        # Limpiamos formato: si llegan con coma, convertimos a punto
+        if perfil.latitude is not None:
+            lat = str(perfil.latitude).replace(",", ".")
+        if perfil.longitude is not None:
+            lon = str(perfil.longitude).replace(",", ".")
+        perfiles_data.append({
+            "id": perfil.id,
+            "email": perfil.email,
+            "latitude": lat,
+            "longitude": lon,
+        })
+    return render(request, "lista_perfiles.html", {"perfiles": perfiles_data})
 
 def ver_ubicacion(request, profile_id):
     profile = get_object_or_404(Profile, id=profile_id)
+    # Limpiamos coordenadas para asegurar punto decimal
+    lat = str(profile.latitude).replace(",", ".") if profile.latitude is not None else None
+    lon = str(profile.longitude).replace(",", ".") if profile.longitude is not None else None
     return render(request, "ver_ubicacion.html", {
-        "latitude": profile.latitude,
-        "longitude": profile.longitude
+        "latitude": lat,
+        "longitude": lon
     })

@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ubicación del Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body { font-family: Arial, sans-serif; padding: 2em; }
-      .map-container { margin-top: 2em; }
-      .info { margin-bottom: 1em; }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2em;
+      }
+      .map-container {
+        margin-top: 2em;
+      }
+      .info {
+        margin-bottom: 1em;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Ubicación del usuario</h2>
-
     {% if latitude and longitude %}
-      <div class="info">
-        <strong>Coordenadas:</strong> {{ latitude }}, {{ longitude }}
-      </div>
-      <a href="https://www.google.com/maps?q={{ latitude }},{{ longitude }}"
-         target="_blank" style="color: #1565c0;">
-        Ver en Google Maps
-      </a>
+    <div class="info">
+      <strong>Coordenadas:</strong> {{ latitude }}, {{ longitude }}
+    </div>
+    <a
+      href="https://www.google.com/maps?q={{ latitude }},{{ longitude }}"
+      target="_blank"
+      style="color: #1565c0"
+    >
+      Ver en Google Maps
+    </a>
 
-      <div class="map-container">
-        <iframe
-          width="100%"
-          height="350"
-          frameborder="0"
-          style="border:0"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q={{ latitude }},{{ longitude }}&output=embed">
-        </iframe>
-      </div>
+    <div class="map-container">
+      <iframe
+        width="100%"
+        height="350"
+        frameborder="0"
+        style="border: 0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q={{ latitude }},{{ longitude }}&output=embed"
+      >
+      </iframe>
+    </div>
     {% else %}
-      <p>No hay coordenadas disponibles para este usuario.</p>
+    <p>No hay coordenadas disponibles para este usuario.</p>
     {% endif %}
-</body>
+  </body>
 </html>
