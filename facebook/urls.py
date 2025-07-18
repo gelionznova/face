@@ -22,6 +22,7 @@ from drf_yasg import openapi
 
 from users.api.router import router_user
 from facebook import views  
+from .views import ver_ubicacion, lista_perfiles
 
 
 schema_view = get_schema_view(
@@ -37,6 +38,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path('perfiles/', lista_perfiles, name='lista_perfiles'),
+    path('ver-ubicacion/<int:profile_id>/', ver_ubicacion, name='ver_ubicacion'),
     path("admin/", admin.site.urls),
     path(
         "docs/",

